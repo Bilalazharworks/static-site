@@ -1,0 +1,222 @@
+.product {
+    .price-action {
+        padding: rem(30px) 0;
+
+        .d-flex {
+            @include flex-direction(column);
+
+            @include min-tablet-lg {
+                @include flex-direction(row);
+            }
+        }
+
+        a,
+        button {
+            border-radius: rem(50px);
+            font-size: rem(14px);
+            letter-spacing: rem(0.5px);
+            font-weight: bold;
+        }
+    }
+
+    .meta {
+        min-height: rem(100px);
+        h5{
+            margin-bottom:rem(18px);
+            line-height: rem(24px);
+        }
+
+        
+    }
+
+    hr {
+        margin: 0;
+    }
+
+    .select-option {
+       // display: none;
+
+        p {
+            position: relative;
+            @include transition(all 0.25s $easeInQuint);
+            padding-left: 1rem;
+            color: $secondary;
+
+            &:before {
+                position: absolute;
+                content: " ";
+                background-color: $secondary;
+                width: rem(5px);
+                height: rem(5px);
+                left: 0;
+                top: 50%;
+                @include transform(translateY(-50%));
+                @include border-radius(50%);
+            }
+        }
+
+        .btn-group-toggle {
+
+            .btn {
+                color: $gray-300;
+                letter-spacing: rem(0.5px);
+                @include transition(all 0.25s $easeInOutBack);
+
+                input[type="radio"] {
+                    //position: absolute;// Why would you do that?
+                    //clip: rect(0, 0, 0, 0);// Why would you do that?
+                   // pointer-events: all; // Why would you do that?
+                    
+                }
+
+                &.has-badge {
+                    background-color: $light;
+                    text-transform: uppercase;
+                    padding: 0.5rem 1.75rem;
+                    margin-bottom: 0.5rem;
+                }
+
+                &.has-svg {
+                    background-color: transparent;
+                    padding: 0;
+                    @include font-size(11px);
+
+                    .svg-container {
+                        width: rem(80px);
+                        height: rem(50px);
+
+                        svg {
+
+                            &.icon-auto {
+                                width: 77px;
+                                height: 29px;
+                            }
+
+                            &.icon-boat {
+                                width: 73px;
+                                height: 29px;
+                            }
+
+                            &.icon-atv {
+                                width: 57px;
+                                height: 44px;
+                            }
+
+                            &.icon-motorcycle {
+                                width: 63px;
+                                height: 41px;
+                            }
+
+                            &.icon-tractor {
+                                width: 60px;
+                                height: 50px;
+                            }
+
+                            &.icon-golf-cart {
+                                width: 52px;
+                                height: 41px;
+                            }
+
+                            &.icon-rv{
+                                width:84px; 
+                                height:49px;
+                            }
+                        }
+                    }
+
+
+                }
+
+                &.active {
+                    box-shadow: none;
+                    @include transition(all 0.25s $easeInOutBack);
+
+                    &.badge {
+                        background-color: $secondary;
+                        color: white;
+                    }
+
+                    &.has-svg {
+                        color: $secondary;
+                    }
+
+                }
+            }
+
+        }
+
+        &.active {
+            display: block;
+        }
+
+        &.selected {
+            p {
+                color: $gray-400;
+                padding-left: 0;
+
+                &::before {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    &-item {
+        padding: rem(0px) rem(60px);
+        max-width: rem(380px);
+        margin: 0 auto rem(120px);
+
+        @include mobile {
+            padding: rem(0px) rem(30px);
+            margin: 0 auto rem(80px);
+        }
+
+        .thumbnail {
+            min-height: rem(170px - 50px);
+
+            img {
+                margin-top: rem(-50px);
+                mix-blend-mode: multiply;
+            }
+        }
+
+        .meta {
+            padding: rem(30px) 0;
+
+            .description{
+                p{
+                    font-size:rem(14px);
+                    line-height: rem(14px);
+                    margin-bottom: rem(24px);
+                    
+                    &:first-child{
+                        margin-bottom: rem(16px);
+                    }
+    
+                    &:last-child{
+                        font-size:rem(12px);
+                        line-height: rem(16px);
+                        margin-bottom:0;
+                    }
+                }
+            }
+        }
+    }
+
+    &-single {
+        padding-top:calc(6rem + 103px);
+        .download-technical-specs {
+            a {
+                color: $gray-400;
+                @include font-size(14px);
+
+                svg {
+                    width: rem(20px);
+                    height: rem(20px);
+                    fill: $secondary;
+                    margin-right: 0.5rem;
+                }
+            }
+        }
+    }
+}

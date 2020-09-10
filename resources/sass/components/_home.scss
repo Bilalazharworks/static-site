@@ -1,0 +1,197 @@
+.about {
+    padding: 62px 0 115px;
+
+    svg {
+        position: absolute;
+        max-width: 340px;
+        height: 270px;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        top: 50%;
+        transform: translateY(-50%);
+        opacity: 0.1;
+        z-index: 1;
+        fill: $secondary;
+        pointer-events: none;
+        width:100%;
+    }
+
+    h2 {
+        line-height: 38px;
+    }
+
+    p {
+        width: 100%;
+        max-width: 490px;
+        margin: 19px auto 0;
+    }
+}
+
+
+
+.battery-management {
+    padding: 0;
+
+    .container {
+        max-width: 1010px;
+    }
+
+    .content-box {
+        padding: 35px 0;
+        margin-right: -5px;
+
+        @include mobile {
+            margin-right: 0;
+        }
+
+        h3 {
+            margin-bottom: 25px;
+            color: $blue-light;
+        }
+
+        p {
+            &+p {
+                margin-top: 28px;
+            }
+        }
+    }
+
+    .img-wrapper {
+        padding-top: 49px;
+        padding-right: 35px;
+
+        @include mobile {
+            padding-right: 0;
+        }
+    }
+}
+
+.find-batteries {
+    padding: 61px 0;
+
+    .btn-group-toggle {
+        .btn {
+            @include not-last {
+                margin-right: 20px;
+
+                @include tablet {
+                    margin-right: 10px;
+                }
+            }
+        }
+
+        &.select-vehicle {
+            .btn {
+                @include not-last {
+                    margin-right: 34px;
+                }
+
+                margin-bottom: 10px;
+            }
+        }
+    }
+
+    .battery-picker__showcase {
+        min-height: 414px;
+        background-color: $gray-100;
+        @include flex;
+        @include align-items(center);
+        @include justify-content(center);
+
+        @include tablet {
+            margin-top: rem(80px);
+        }
+
+        .content-loading {
+            #selection_progress {
+                @extend %transition;
+                transform: translateY(100%);
+            }
+
+            &.step-1-completed {
+                #selection_progress {
+                    transform: translateY(75%);
+                }
+            }
+
+            &.step-2-completed {
+                #selection_progress {
+                    transform: translateY(50%);
+                }
+            }
+
+            &.step-3-completed {
+                #selection_progress {
+                    transform: translateY(25%);
+                }
+            }
+        }
+
+
+
+
+
+    }
+
+    .carousel-nav {
+        // .carousel-init {
+            &:not(.flickity-enabled){
+                @include flex;
+                .carousel-cell{
+                    @include not-last{
+                        margin-right: 34px;
+                    }
+                }
+            }
+
+            .flickity-viewport {
+               // height: auto !important;
+
+                .flickity-slider {
+                  //  position: relative !important;
+                    @include flex;
+                    @include flex-wrap(wrap);
+                    @include transform(none !important);
+                    // .carousel-cell {
+                    //     position: relative !important;
+                    //     left: auto !important;
+
+                    //     @include not-last {
+                    //         margin-right: 20px;
+                    //     }
+                    // }
+                    .btn{
+                        &.is-selected{
+                            background-color: #47A5DC;
+                            color: white;
+                        }
+                    }
+                }
+            }
+        // }
+    }
+
+    .carousel-main {
+        width: 100%;
+        margin-top: -50px;
+
+        .carousel-cell {
+            width: 100%;
+            padding-top: 50px;
+        }
+
+        .flickity-page-dots {
+            bottom: -35px;
+
+            .dot {
+                background-color: $gray-200;
+                opacity: 1;
+
+                &.is-selected {
+                    background-color: $blue-light;
+                }
+            }
+        }
+    }
+}

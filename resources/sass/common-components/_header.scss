@@ -1,0 +1,274 @@
+.site-header {
+    @extend %transition;
+
+    .navbar {
+        padding: 2rem 1rem;
+
+        @include tablet {
+            padding: 1rem;
+        }
+
+        &::after {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            left: 0;
+            top: 0;
+            background-color: $white;
+            opacity: 0;
+
+            @include tablet {
+                content: '';
+            }
+        }
+
+        .navbar-brand {
+            padding: 0;
+            position: relative;
+            z-index: 5;
+
+            svg {
+                fill: white;
+                @extend %transition;
+                width: rem(180px);
+                height: rem(37px);
+            }
+        }
+
+        .navbar-nav {
+            padding-top: 11px;
+
+            @include tablet {
+                padding-top: 15px;
+            }
+
+            li {
+                @include not-last {
+                    margin-right: 42px;
+
+                    @include tablet {
+                        margin-right: 0;
+                    }
+                }
+
+                @include tablet {
+                    margin: 0;
+                    padding-left: 20px;
+                }
+
+                a {
+                    position: relative;
+                    color: $white;
+                    padding: 0;
+                    @include opacity(0.5);
+
+                    @include tablet {
+                        font-size: rem(22px);
+                    }
+
+                    &:before {
+                        position: absolute;
+                        content: " ";
+                        width: rem(12px);
+                        height: rem(16px);
+                        top: rem(-17px);
+                        right: 0;
+                        left: 0;
+                        margin: 0 auto;
+                        background-image: url('data:image/svg+xml;utf8,<svg width="12" height="16" viewBox="0 0 12 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.4251 16V9.82741H0L7.21127 0V6.17259H11.6364L4.4251 16Z" fill="#{url-encoded-color($white)}"/></svg>');
+                        background-repeat: no-repeat;
+                        background-size: cover;
+                        background-position: center rem(20px);
+                        @include transition(background-position 0.25s $easeInOutQuad);
+
+                        @include tablet {
+                            top: 50%;
+                            @include prefix (transform, translateY(-50%));
+                            right: auto;
+                            left: -20px;
+                        }
+                    }
+
+                    &:hover {
+                        @include opacity(1);
+
+                        &:before {
+                            @include transition(background-position 0.25s $easeInOutQuad);
+                            background-position: center rem(0px);
+                        }
+                    }
+                }
+
+                &.active {
+                    a {
+                        @include opacity(1);
+
+                        &:before {
+                            background-position: center rem(0px);
+                        }
+
+                    }
+                }
+            }
+        }
+    }
+
+    .navbar-toggler {
+        width: 42px;
+        height: 32px;
+        padding: 0;
+        border: none;
+        outline: none !important;
+        overflow: hidden;
+        @extend %transition;
+        padding-left: 10px;
+        position: relative;
+        z-index: 5;
+
+        svg {
+            cursor: pointer;
+            -webkit-transform: translate3d(-8px, -1px, 0) scale(1.8);
+            -moz-transform: translate3d(-8px, -1px, 0) scale(1.8);
+            -o-transform: translate3d(-8px, -1px, 0) scale(1.8);
+            -ms-transform: translate3d(-8px, -1px, 0) scale(1.8);
+            transform: translate3d(-8px, -1px, 0) scale(1.8);
+            width: 32px;
+            height: 32px;
+
+            path {
+                fill: none;
+                -webkit-transition: stroke-dashoffset 0.5s cubic-bezier(0.25, -0.25, 0.75, 1.25), stroke-dasharray 0.5s cubic-bezier(0.25, -0.25, 0.75, 1.25);
+                -moz-transition: stroke-dashoffset 0.5s cubic-bezier(0.25, -0.25, 0.75, 1.25), stroke-dasharray 0.5s cubic-bezier(0.25, -0.25, 0.75, 1.25);
+                -o-transition: stroke-dashoffset 0.5s cubic-bezier(0.25, -0.25, 0.75, 1.25), stroke-dasharray 0.5s cubic-bezier(0.25, -0.25, 0.75, 1.25);
+                -ms-transition: stroke-dashoffset 0.5s cubic-bezier(0.25, -0.25, 0.75, 1.25), stroke-dasharray 0.5s cubic-bezier(0.25, -0.25, 0.75, 1.25);
+                transition: stroke-dashoffset 0.5s cubic-bezier(0.25, -0.25, 0.75, 1.25), stroke-dasharray 0.5s cubic-bezier(0.25, -0.25, 0.75, 1.25);
+                stroke-width: 30px;
+                stroke-linecap: round;
+                stroke: $white;
+                stroke-dashoffset: 0px;
+
+                &#top,
+                &#bottom {
+                    stroke-dasharray: 240px 950px;
+                }
+
+                &#middle {
+                    stroke-dasharray: 240px 240px;
+                }
+            }
+        }
+
+        &[aria-expanded="true"] {
+            svg {
+                path {
+
+                    &#top,
+                    &#bottom {
+                        stroke-dashoffset: -650px;
+                        stroke-dashoffset: -650px;
+                    }
+
+                    &#middle {
+                        stroke-dashoffset: -115px;
+                        stroke-dasharray: 1px 220px;
+                    }
+                }
+            }
+        }
+    }
+
+    .navbar-nav-wrapper {
+        @extend %transition;
+
+        @include tablet {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: rgba(255, 255, 255, 0.95);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            @include flex;
+            @include prefix(transform, translateX(-100%));
+            @include flex-direction(column);
+            @include align-items(center);
+            padding: 44px 32px;
+            padding-top: 80px;
+            overflow: hidden auto;
+        }
+
+        .navbar-nav {
+            @include tablet {
+                margin: auto;
+                @include align-items(center);
+            }
+        }
+    }
+
+    .navbar-collapse {
+        @include tablet {
+            display: block !important;
+            opacity: 1 !important;
+            height: auto !important;
+            width: 100% !important;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        &.show {
+            .navbar-nav-wrapper {
+                @include tablet {
+                    @include prefix(transform, translateX(0));
+                }
+            }
+        }
+    }
+
+    &.menu-shown {
+        @include tablet {
+            background-color: $white;
+        }
+
+        .navbar {
+            background-color: $white !important;
+
+            @include tablet {
+                background-color: $transparent !important;
+            }
+
+            &::after {
+                @include tablet {
+                    opacity: 1;
+                }
+            }
+
+            .navbar-brand {
+                svg {
+                    fill: $blue;
+                }
+            }
+
+            .navbar-nav {
+                li {
+                    a {
+                        color: $blue;
+
+                        &:before {
+                            background-image: url('data:image/svg+xml;utf8,<svg width="12" height="16" viewBox="0 0 12 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.4251 16V9.82741H0L7.21127 0V6.17259H11.6364L4.4251 16Z" fill="#{url-encoded-color($blue)}"/></svg>');
+                        }
+                    }
+                }
+            }
+        }
+
+        .navbar-toggler {
+            svg {
+                path {
+                    stroke: $blue;
+                }
+            }
+        }
+    }
+}

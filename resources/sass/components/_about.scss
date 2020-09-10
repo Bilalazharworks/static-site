@@ -1,0 +1,50 @@
+.sustainability {
+    svg {
+        max-width: rem(165px);
+    }
+}
+
+
+.lifecycle {
+    svg {
+        max-width: rem(400px);
+    }
+}
+
+.efficiency {
+    figure {
+        margin-bottom: rem(45px);
+    }
+
+    svg {
+        max-width: rem(750px);
+    }
+}
+
+
+.performance {
+    svg {
+        max-width: rem(235px);
+    }
+}
+
+.section-about {
+    .container {
+        max-width: 1010px;
+    }
+
+    figure {
+        text-align: center;
+    }
+
+    @include media-breakpoint-down(lg) {
+        figure {
+            margin-bottom: 2rem;
+
+            svg {
+                @include transform(scale(0.75));
+                @include transform-origin(center);
+            }
+        }
+    }
+}
